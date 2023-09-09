@@ -1,0 +1,1111 @@
+{
+  "name": "dqm-watchface",
+  "author": "Dscheinah",
+  "version": "1.0.0",
+  "keywords": ["pebble-app"],
+  "private": true,
+  "dependencies": {},
+  "pebble": {
+    "displayName": "DQM Gamified Watchface",
+    "uuid": "96bb9b95-bf1b-46c0-a36f-58a114762e90",
+    "sdkVersion": "3",
+    "enableMultiJS": true,
+    "targetPlatforms": [
+      "aplite",
+      "basalt",
+      "chalk",
+      "diorite",
+      "emery"
+    ],
+    "watchapp": {
+      "watchface": true
+    },
+    "messageKeys": [
+      "dummy"
+    ],
+    "resources": {
+      "media": [
+        {
+          "file": "monsters/001_babble.png",
+          "name": "BABBLE",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/002_boxslime.png",
+          "name": "BOXSLIME",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/003_drakslime.png",
+          "name": "DRAKSLIME",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/004_fangslime.png",
+          "name": "FANGSLIME",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/005_goldslime.png",
+          "name": "GOLDSLIME",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/006_healer.png",
+          "name": "HEALER",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/007_kingslime.png",
+          "name": "KINGSLIME",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/008_metabble.png",
+          "name": "METABBLE",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/009_metalking.png",
+          "name": "METALKING",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/010_metaly.png",
+          "name": "METALY",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/011_rockslime.png",
+          "name": "ROCKSLIME",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/012_slabbit.png",
+          "name": "SLABBIT",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/013_slime.png",
+          "name": "SLIME",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/014_slimeborg.png",
+          "name": "SLIMEBORG",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/015_slimenite.png",
+          "name": "SLIMENITE",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/016_snaily.png",
+          "name": "SNAILY",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/017_spotking.png",
+          "name": "SPOTKING",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/018_spotslime.png",
+          "name": "SPOTSLIME",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/019_treeslime.png",
+          "name": "TREESLIME",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/020_wingslime.png",
+          "name": "WINGSLIME",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/021_andreal.png",
+          "name": "ANDREAL",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/022_battlerex.png",
+          "name": "BATTLEREX",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/023_chameleon.png",
+          "name": "CHAMELEON",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/024_coatol.png",
+          "name": "COATOL",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/025_crestpent.png",
+          "name": "CRESTPENT",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/026_divinegon.png",
+          "name": "DIVINEGON",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/027_dragon.png",
+          "name": "DRAGON",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/028_dragonkid.png",
+          "name": "DRAGONKID",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/029_fairydrak.png",
+          "name": "FAIRYDRAK",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/030_gasgon.png",
+          "name": "GASGON",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/031_greatdrak.png",
+          "name": "GREATDRAK",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/032_kingcobra.png",
+          "name": "KINGCOBRA",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/033_lizardfly.png",
+          "name": "LIZARDFLY",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/034_lizardman.png",
+          "name": "LIZARDMAN",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/035_maddragon.png",
+          "name": "MADDRAGON",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/036_minidrak.png",
+          "name": "MINIDRAK",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/037_orochi.png",
+          "name": "OROCHI",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/038_poisongon.png",
+          "name": "POISONGON",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/039_pteranod.png",
+          "name": "PTERANOD",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/040_rayburn.png",
+          "name": "RAYBURN",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/041_skydragon.png",
+          "name": "SKYDRAGON",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/042_spikerous.png",
+          "name": "SPIKEROUS",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/043_swordgon.png",
+          "name": "SWORDGON",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/044_tortragon.png",
+          "name": "TORTRAGON",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/045_wingsnake.png",
+          "name": "WINGSNAKE",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/046_almiraj.png",
+          "name": "ALMIRAJ",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/047_anteater.png",
+          "name": "ANTEATER",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/048_bigeye.png",
+          "name": "BIGEYE",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/049_catfly.png",
+          "name": "CATFLY",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/050_darkhorn.png",
+          "name": "DARKHORN",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/051_fairyrat.png",
+          "name": "FAIRYRAT",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/052_goategon.png",
+          "name": "GOATEGON",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/053_grizzly.png",
+          "name": "GRIZZLY",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/054_gulpbeast.png",
+          "name": "GULPBEAST",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/055_hammerman.png",
+          "name": "HAMMERMAN",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/056_ironturt.png",
+          "name": "IRONTURT",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/057_kingleo.png",
+          "name": "KINGLEO",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/058_madcat.png",
+          "name": "MADCAT",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/059_madgopher.png",
+          "name": "MADGOPHER",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/060_mommonja.png",
+          "name": "MOMMONJA",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/061_pillowrat.png",
+          "name": "PILLOWRAT",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/062_saccer.png",
+          "name": "SACCER",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/063_skullroo.png",
+          "name": "SKULLROO",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/064_superten.png",
+          "name": "SUPERTEN",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/065_tonguella.png",
+          "name": "TONGUELLA",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/066_trumpeter.png",
+          "name": "TRUMPETER",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/067_unicorn.png",
+          "name": "UNICORN",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/068_wildape.png",
+          "name": "WILDAPE",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/069_windbeast.png",
+          "name": "WINDBEAST",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/070_yeti.png",
+          "name": "YETI",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/071_bigroost.png",
+          "name": "BIGROOST",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/072_blizzardy.png",
+          "name": "BLIZZARDY",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/073_bullbird.png",
+          "name": "BULLBIRD",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/074_dracky.png",
+          "name": "DRACKY",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/075_duckkite.png",
+          "name": "DUCKKITE",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/076_florajay.png",
+          "name": "FLORAJAY",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/077_funkybird.png",
+          "name": "FUNKYBIRD",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/078_landowl.png",
+          "name": "LANDOWL",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/079_madcondor.png",
+          "name": "MADCONDOR",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/080_madgoose.png",
+          "name": "MADGOOSE",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/081_madpecker.png",
+          "name": "MADPECKER",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/082_madraven.png",
+          "name": "MADRAVEN",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/083_mistywing.png",
+          "name": "MISTYWING",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/084_phoenix.png",
+          "name": "PHOENIX",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/085_picky.png",
+          "name": "PICKY",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/086_rainhawk.png",
+          "name": "RAINHAWK",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/087_subbird.png",
+          "name": "SUBBIRD",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/088_whipbird.png",
+          "name": "WHIPBIRD",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/089_wyvern.png",
+          "name": "WYVERN",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/090_zapbird.png",
+          "name": "ZAPBIRD",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/091_amberweed.png",
+          "name": "AMBERWEED",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/092_beanman.png",
+          "name": "BEANMAN",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/093_cactiball.png",
+          "name": "CACTIBALL",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/094_dancevegi.png",
+          "name": "DANCEVEGI",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/095_evilseed.png",
+          "name": "EVILSEED",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/096_facetree.png",
+          "name": "FACETREE",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/097_fireweed.png",
+          "name": "FIREWEED",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/098_floraman.png",
+          "name": "FLORAMAN",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/099_gulpple.png",
+          "name": "GULPPLE",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/100_herbman.png",
+          "name": "HERBMAN",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/101_madplant.png",
+          "name": "MADPLANT",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/102_maneater.png",
+          "name": "maneater",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/103_oniono.png",
+          "name": "ONIONO",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/104_rosevine.png",
+          "name": "ROSEVINE",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/105_snapper.png",
+          "name": "SNAPPER",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/106_stubsuck.png",
+          "name": "STUBSUCK",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/107_toadstool.png",
+          "name": "TOADSTOOL",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/108_treeboy.png",
+          "name": "TREEBOY",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/109_watabou.png",
+          "name": "WATABOU",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/110_wingtree.png",
+          "name": "WINGTREE",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/111_armorpede.png",
+          "name": "ARMORPEDE",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/112_armorpion.png",
+          "name": "ARMORPION",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/113_armyant.png",
+          "name": "ARMYANT",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/114_armycrab.png",
+          "name": "ARMYCRAB",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/115_butterfly.png",
+          "name": "BUTTERFLY",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/116_catapila.png",
+          "name": "CATAPILA",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/117_digster.png",
+          "name": "DIGSTER",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/118_droll.png",
+          "name": "DROLL",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/119_eyeder.png",
+          "name": "EYEDER",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/120_giantmoth.png",
+          "name": "GIANTMOTH",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/121_giantslug.png",
+          "name": "GIANTSLUG",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/122_giantworm.png",
+          "name": "GIANTWORM",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/123_gohopper.png",
+          "name": "GOHOPPER",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/124_gophecada.png",
+          "name": "GOPHECADA",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/125_hornbeet.png",
+          "name": "HORNBEET",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/126_lipsy.png",
+          "name": "LIPSY",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/127_madhornet.png",
+          "name": "MADHORNET",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/128_stagbug.png",
+          "name": "STAGBUG",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/129_taileater.png",
+          "name": "TAILEATER",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/130_weedbug.png",
+          "name": "WEEDBUG",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/131_agdevil.png",
+          "name": "AGDEVIL",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/132_akubar.png",
+          "name": "AKUBAR",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/133_arcdemon.png",
+          "name": "ARCDEMON",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/134_centasaur.png",
+          "name": "CENTASAUR",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/135_chopclown.png",
+          "name": "CHOPCLOWN",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/136_darkeye.png",
+          "name": "DARKEYE",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/137_demonite.png",
+          "name": "DEMONITE",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/138_durran.png",
+          "name": "DURRAN",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/139_evilarmor.png",
+          "name": "EVILARMOR",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/140_evilbeast.png",
+          "name": "EVILBEAST",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/141_eyeball.png",
+          "name": "EYEBALL",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/142_gateguard.png",
+          "name": "GATEGUARD",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/143_gigantes.png",
+          "name": "GIGANTES",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/144_goathorn.png",
+          "name": "GOATHORN",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/145_gremlin.png",
+          "name": "GREMLIN",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/146_grendal.png",
+          "name": "GRENDAL",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/147_jamirus.png",
+          "name": "JAMIRUS",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/148_lionex.png",
+          "name": "LIONEX",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/149_madknight.png",
+          "name": "MADKNIGHT",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/150_medusaeye.png",
+          "name": "MEDUSAEYE",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/151_ogre.png",
+          "name": "OGRE",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/152_eyeclown.png",
+          "name": "EYECLOWN",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/153_orc.png",
+          "name": "ORC",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/154_pixy.png",
+          "name": "PIXY",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/155_skulrider.png",
+          "name": "SKULRIDER",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/156_boneslave.png",
+          "name": "BONESLAVE",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/157_copycat.png",
+          "name": "COPYCAT",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/158_darkcrab.png",
+          "name": "DARKCRAB",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/159_deadnite.png",
+          "name": "DEADNITE",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/160_deadnoble.png",
+          "name": "DEADNOBLE",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/161_hork.png",
+          "name": "HORK",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/162_madspirit.png",
+          "name": "MADSPIRIT",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/163_mudron.png",
+          "name": "MUDRON",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/164_mummy.png",
+          "name": "MUMMY",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/165_nitewhip.png",
+          "name": "NITEWHIP",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/166_putrepup.png",
+          "name": "PUTREPUP",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/167_reaper.png",
+          "name": "REAPER",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/168_rotraven.png",
+          "name": "ROTRAVEN",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/169_servant.png",
+          "name": "SERVANT",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/170_shadow.png",
+          "name": "SHADOW",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/171_skeletor.png",
+          "name": "SKELETOR",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/172_skullgon.png",
+          "name": "SKULLGON",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/173_spooky.png",
+          "name": "SPOOKY",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/174_whiteking.png",
+          "name": "WHITEKING",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/175_windmerge.png",
+          "name": "WINDMERGE",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/176_balzak.png",
+          "name": "BALZAK",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/177_bombcrag.png",
+          "name": "BOMBCRAG",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/178_coilbird.png",
+          "name": "COILBIRD",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/179_curselamp.png",
+          "name": "CURSELAMP",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/180_evilpot.png",
+          "name": "EVILPOT",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/181_evilwand.png",
+          "name": "EVILWAND",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/182_facer.png",
+          "name": "FACER",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/183_gismo.png",
+          "name": "GISMO",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/184_goldgolem.png",
+          "name": "GOLDGOLEM",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/185_golem.png",
+          "name": "GOLEM",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/186_goopi.png",
+          "name": "GOOPI",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/187_iceman.png",
+          "name": "ICEMAN",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/188_jewelbag.png",
+          "name": "JEWELBAG",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/189_lavaman.png",
+          "name": "LAVAMAN",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/190_madcandle.png",
+          "name": "MADCANDLE",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/191_madmirror.png",
+          "name": "MADMIRROR",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/192_metaldrak.png",
+          "name": "METALDRAK",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/193_mimic.png",
+          "name": "MIMIC",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/194_muddoll.png",
+          "name": "MUDDOLL",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/195_roboster.png",
+          "name": "ROBOSTER",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/196_roguenite.png",
+          "name": "ROGUENITE",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/197_sabreman.png",
+          "name": "SABREMAN",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/198_spikyboy.png",
+          "name": "SPIKYBOY",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/199_stoneman.png",
+          "name": "STONEMAN",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/200_voodoll.png",
+          "name": "VOODOLL",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/201_baramos.png",
+          "name": "BARAMOS",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/202_darkdrium.png",
+          "name": "darkdrium",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/203_deathmore.png",
+          "name": "DEATHMORE",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/204_deathmore2.png",
+          "name": "DEATHMORE2",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/205_deathmore3.png",
+          "name": "DEATHMORE3",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/206_dracolord.png",
+          "name": "DRACOLORD",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/207_dracolord2.png",
+          "name": "DRACOLORD2",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/208_esterk.png",
+          "name": "ESTERK",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/209_hargon.png",
+          "name": "HARGON",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/210_mirudraas.png",
+          "name": "MIRUDRAAS",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/211_mirudraas2.png",
+          "name": "MIRUDRAAS2",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/212_mudou.png",
+          "name": "MUDOU",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/213_pizzaro.png",
+          "name": "PIZZARO",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/214_sidoh.png",
+          "name": "SIDOH",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/215_zoma.png",
+          "name": "ZOMA",
+          "type": "bitmap"
+        },
+        {
+          "file": "monsters/000_terry.png",
+          "name": "TERRY",
+          "type": "bitmap"
+        }
+      ]
+    }
+  }
+}
