@@ -24,6 +24,17 @@ static void handleTime(struct tm* tick_time, TimeUnits units_changed) {
     }
     monsters_mark_dirty();
   }
+  if (units_changed & DAY_UNIT) {
+    watch_render_date(tick_time);
+  }
+}
+
+static void handleBattery(BatteryChargeState charge_state) {
+  watch_render_battery(charge_state.charge_percent, charge_state.is_charging);
+}
+
+static void handleConnection(bool connected) {
+  watch_render_connection(connected);
 }
 
 static void prv_window_load(Window *window) {
@@ -53,10 +64,20 @@ static void prv_init(void) {
   tick_timer_service_subscribe(MINUTE_UNIT, handleTime);
   time_t now = time(NULL);
   handleTime(localtime(&now), SECOND_UNIT | MINUTE_UNIT | HOUR_UNIT | DAY_UNIT | INIT_UNIT);
+
+  battery_state_service_subscribe(handleBattery);
+  handleBattery(battery_state_service_peek());
+
+  connection_service_subscribe((ConnectionHandlers) {
+    .pebble_app_connection_handler = handleConnection,
+  });
+  handleConnection(connection_service_peek_pebble_app_connection());
 }
 
 static void prv_deinit(void) {
   tick_timer_service_unsubscribe();
+  battery_state_service_unsubscribe();
+  connection_service_unsubscribe();
 
   window_destroy(s_window);
 

@@ -3,6 +3,7 @@
 #include "../state/global.h"
 
 #define FONT_LARGE FONT_KEY_LECO_42_NUMBERS
+#define FONT_SMALL FONT_KEY_GOTHIC_14
 
 TextLayer* helper_create_text_layer(Layer* parent, GRect rect, char* font, GTextAlignment alignment);
 
