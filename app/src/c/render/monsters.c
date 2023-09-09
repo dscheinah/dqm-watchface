@@ -18,6 +18,50 @@ static void renderBitmap(Part* part, ResourceValue resource) {
   part->previous = resource;
   gbitmap_destroy(part->bitmap);
   part->bitmap = helper_create_bitmap(resource);
+  switch (resource) {
+    case RESOURCE_ID_DARKEYE:
+    case RESOURCE_ID_DEATHMORE3:
+    case RESOURCE_ID_WHIPBIRD:
+      bitmap_layer_set_alignment(part->image, GAlignTop);
+      break;
+    case RESOURCE_ID_BUTTERFLY:
+    case RESOURCE_ID_CATFLY:
+    case RESOURCE_ID_COILBIRD:
+    case RESOURCE_ID_COPYCAT:
+    case RESOURCE_ID_DEATHMORE:
+    case RESOURCE_ID_DRACKY:
+    case RESOURCE_ID_DRAKSLIME:
+    case RESOURCE_ID_EVILSEED:
+    case RESOURCE_ID_EYECLOWN:
+    case RESOURCE_ID_FACER:
+    case RESOURCE_ID_FAIRYDRAK:
+    case RESOURCE_ID_FAIRYRAT:
+    case RESOURCE_ID_FLORAJAY:
+    case RESOURCE_ID_GATEGUARD:
+    case RESOURCE_ID_GIANTMOTH:
+    case RESOURCE_ID_GISMO:
+    case RESOURCE_ID_GREMLIN:
+    case RESOURCE_ID_JEWELBAG:
+    case RESOURCE_ID_LIZARDFLY:
+    case RESOURCE_ID_MADHORNET:
+    case RESOURCE_ID_MADSPIRIT:
+    case RESOURCE_ID_MEDUSAEYE:
+    case RESOURCE_ID_MISTYWING:
+    case RESOURCE_ID_NITEWHIP:
+    case RESOURCE_ID_PTERANOD:
+    case RESOURCE_ID_REAPER:
+    case RESOURCE_ID_SABREMAN:
+    case RESOURCE_ID_SHADOW:
+    case RESOURCE_ID_SPOOKY:
+    case RESOURCE_ID_WINGSLIME:
+    case RESOURCE_ID_WINGTREE:
+    case RESOURCE_ID_WYVERN:
+      bitmap_layer_set_alignment(part->image, GAlignCenter);
+      break;
+    default:
+      bitmap_layer_set_alignment(part->image, GAlignBottom);
+      break;
+  }
   bitmap_layer_set_bitmap(part->image, part->bitmap);
 }
 
