@@ -9,12 +9,9 @@ TextLayer* helper_create_text_layer(Layer* parent, GRect rect, char* font, GText
   return layer;
 }
 
-BitmapLayer* helper_create_bitmap_layer(Layer* parent, GRect rect, GBitmap* bitmap) {
+BitmapLayer* helper_create_bitmap_layer(Layer* parent, GRect rect) {
   BitmapLayer* layer = bitmap_layer_create(rect);
   layer_add_child(parent, bitmap_layer_get_layer(layer));
-  if (bitmap != NULL) {
-    bitmap_layer_set_bitmap(layer, bitmap);
-  }
   return layer;
 }
 

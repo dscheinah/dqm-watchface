@@ -7,7 +7,7 @@
 
 TextLayer* helper_create_text_layer(Layer* parent, GRect rect, char* font, GTextAlignment alignment);
 
-BitmapLayer* helper_create_bitmap_layer(Layer* parent, GRect rect, GBitmap* bitmap);
+BitmapLayer* helper_create_bitmap_layer(Layer* parent, GRect rect);
 
 Layer* helper_create_layer(Layer* parent, GRect rect);
 
