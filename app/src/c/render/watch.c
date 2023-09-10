@@ -14,8 +14,8 @@ static TextLayer* batteryLayer;
 static char* timeFormat;
 
 static char timeBuffer[6];
-static char dateBuffer[11];
-static char dowBuffer[10];
+static char dateBuffer[20];
+static char dowBuffer[20];
 static char quietBuffer[2];
 static char connectionBuffer[2];
 static char batteryBuffer[6];
@@ -50,9 +50,9 @@ void watch_render_time(struct tm* tick_time) {
 }
 
 void watch_render_date(struct tm* tick_time) {
-  strftime(dateBuffer, 11, "%Y-%m-%d", tick_time);
+  strftime(dateBuffer, 20, "%x", tick_time);
   text_layer_set_text(dateLayer, dateBuffer);
-  strftime(dowBuffer, 10, "%A", tick_time);
+  strftime(dowBuffer, 20, "%A", tick_time);
   text_layer_set_text(dowLayer, dowBuffer);
 }
 

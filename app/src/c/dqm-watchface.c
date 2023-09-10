@@ -85,6 +85,7 @@ static void prv_deinit(void) {
 }
 
 int main(void) {
+  setlocale(LC_ALL, "");
   prv_init();
   app_event_loop();
   prv_deinit();
