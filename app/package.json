@@ -456,8 +456,8 @@
           "type": "bitmap"
         },
         {
-          "file": "monsters/087_subbird.png",
-          "name": "SUBBIRD",
+          "file": "monsters/087_stubbird.png",
+          "name": "STUBBIRD",
           "type": "bitmap"
         },
         {
