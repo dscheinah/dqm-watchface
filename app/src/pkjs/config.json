@@ -1,0 +1,35 @@
+[
+  {
+    "type": "heading",
+    "defaultValue": "DQM Gamified Watchface"
+  },
+  {
+    "type": "text",
+    "defaultValue": "Use the settings page to add a new monster to your screen by breeding. Your first monster will vanish when you add a new one. Increase your breeding power by sleeping and unlock new monsters by walking. Some monsters require more breeding power. This is indicated by the number at the top right."
+  },
+  {
+    "type": "section",
+    "items": [
+      {
+        "type": "heading",
+        "defaultValue": "Breeding"
+      },
+      {
+        "type": "breeding",
+        "messageKey": "breeding"
+      },
+      {
+        "type": "selection",
+        "messageKey": "selection"
+      },
+      {
+        "type": "power",
+        "messageKey": "power"
+      }
+    ]
+  },
+  {
+    "type": "submit",
+    "defaultValue": "APPLY"
+  }
+]

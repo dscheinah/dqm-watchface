@@ -1,0 +1,52 @@
+{
+  "slime": {
+    "name": "Slime",
+    "owned": [],
+    "other": []
+  },
+  "dragon": {
+    "name": "Dragon",
+    "owned": [],
+    "other": []
+  },
+  "beast": {
+    "name": "Beast",
+    "owned": [],
+    "other": []
+  },
+  "bird": {
+    "name": "Bird",
+    "owned": [],
+    "other": []
+  },
+  "plant": {
+    "name": "Plant",
+    "owned": [],
+    "other": []
+  },
+  "bug": {
+    "name": "Bug",
+    "owned": [],
+    "other": []
+  },
+  "devil": {
+    "name": "Devil",
+    "owned": [],
+    "other": []
+  },
+  "zombie": {
+    "name": "Zombie",
+    "owned": [],
+    "other": []
+  },
+  "material": {
+    "name": "Material",
+    "owned": [],
+    "other": []
+  },
+  "???": {
+    "name": "???",
+    "owned": [],
+    "other": []
+  }
+}

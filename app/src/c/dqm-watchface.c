@@ -12,20 +12,59 @@ static Window* s_window;
 
 static State* state;
 
+static void sendData() {
+  DictionaryIterator* outbox;
+  app_message_outbox_begin(&outbox);
+  if (outbox) {
+    dict_write_int(outbox, MESSAGE_KEY_breeding0, &state->index[0], 4, false);
+    dict_write_int(outbox, MESSAGE_KEY_breeding1, &state->index[1], 4, false);
+    dict_write_int(outbox, MESSAGE_KEY_breeding2, &state->index[2], 4, false);
+    dict_write_int(outbox, MESSAGE_KEY_breeding3, &state->index[3], 4, false);
+    dict_write_int(outbox, MESSAGE_KEY_breeding4, &state->index[4], 4, false);
+    dict_write_int(outbox, MESSAGE_KEY_breeding5, &state->index[5], 4, false);
+    dict_write_int(outbox, MESSAGE_KEY_breeding6, &state->index[6], 4, false);
+    dict_write_int(outbox, MESSAGE_KEY_status_power, &state->power, 2, false);
+    dict_write_int(outbox, MESSAGE_KEY_status_tier, &state->tier, 2, false);
+    dict_write_int(outbox, MESSAGE_KEY_status_steps, &state->steps_left, 4, false);
+    app_message_outbox_send();
+  }
+}
+
 static void handleTime(struct tm* tick_time, TimeUnits units_changed) {
   if (units_changed & MINUTE_UNIT) {
     watch_render_time(tick_time);
   }
-  if (units_changed & HOUR_UNIT) {
-    if (!(units_changed & INIT_UNIT)) {
-      state->monsters[0] = state->monsters[1];
-      state->monsters[1] = state->monsters[2];
-      state->monsters[2] = rand() % 216 + 1;
-    }
-    monsters_mark_dirty();
-  }
   if (units_changed & DAY_UNIT) {
+    if (!(units_changed & INIT_UNIT)) {
+      state->steps_last = 0;
+      state->sleep_last = 0;
+      state->power++;
+    }
     watch_render_date(tick_time);
+  }
+  if (units_changed & HOUR_UNIT) {
+    if (state->tier < 20) {
+      HealthValue steps = health_service_sum_today(HealthMetricStepCount);
+      state->steps_left -= steps - state->steps_last;
+      state->steps_last = steps;
+      if (state->steps_left <= 0) {
+        state->tier++;
+        state->steps_left = state->tier * 10000 + state->steps_left;
+      }
+    } else {
+      state->steps_left = 0;
+    }
+    if (state->power < 99) {
+      HealthValue sleep = health_service_sum_today(HealthMetricSleepSeconds);
+      state->sleep_left -= sleep - state->sleep_last;
+      state->sleep_last = sleep;
+      if (state->sleep_left <= 0) {
+        state->power++;
+        state->sleep_left = 18000 + state->sleep_left;
+      }
+    }
+    state_write();
+    sendData();
   }
 }
 
@@ -35,6 +74,24 @@ static void handleBattery(BatteryChargeState charge_state) {
 
 static void handleConnection(bool connected) {
   watch_render_connection(connected);
+}
+
+static void handleInbox(DictionaryIterator* iter, void* context) {
+  Tuple* selection = dict_find(iter, MESSAGE_KEY_selection);
+  Tuple* power = dict_find(iter, MESSAGE_KEY_power);
+  if (selection && power) {
+    state->monsters[0] = state->monsters[1];
+    state->monsters[1] = state->monsters[2];
+    state->monsters[2] = selection->value->uint16;
+    state->power -= power->value->uint8;
+    if (state->power < 0) {
+      state->power = 0;
+    }
+    monsters_mark_dirty();
+    state_update_index();
+    state_write();
+  }
+  sendData();
 }
 
 static void prv_window_load(Window *window) {
@@ -72,6 +129,12 @@ static void prv_init(void) {
     .pebble_app_connection_handler = handleConnection,
   });
   handleConnection(connection_service_peek_pebble_app_connection());
+
+  app_message_register_inbox_received(handleInbox);
+  app_message_open(128, 128);
+
+  void* data = NULL;
+  app_timer_register(1000, &sendData, data);
 }
 
 static void prv_deinit(void) {
@@ -82,6 +145,8 @@ static void prv_deinit(void) {
   window_destroy(s_window);
 
   state_write();
+
+  app_message_deregister_callbacks();
 }
 
 int main(void) {

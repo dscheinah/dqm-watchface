@@ -2,9 +2,13 @@
   "name": "dqm-watchface",
   "author": "Dscheinah",
   "version": "1.0.0",
-  "keywords": ["pebble-app"],
+  "keywords": [
+    "pebble-app"
+  ],
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "pebble-clay": "^1.0.4"
+  },
   "pebble": {
     "displayName": "DQM Gamified Watchface",
     "uuid": "96bb9b95-bf1b-46c0-a36f-58a114762e90",
@@ -20,8 +24,25 @@
     "watchapp": {
       "watchface": true
     },
+    "capabilities": [
+      "health",
+      "configurable"
+    ],
     "messageKeys": [
-      "dummy"
+      "status_power",
+      "status_tier",
+      "status_steps",
+      "breeding0",
+      "breeding1",
+      "breeding2",
+      "breeding3",
+      "breeding4",
+      "breeding5",
+      "breeding6",
+      "selection",
+      "power",
+      "breeding",
+      "monsters"
     ],
     "resources": {
       "media": [

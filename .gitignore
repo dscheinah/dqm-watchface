@@ -1,4 +1,5 @@
 .*
 !.git*
 app/build
+app/node_modules
 app/resources/monsters/*
