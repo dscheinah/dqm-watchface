@@ -1,15 +1,15 @@
 function get() {
     return window.selected && window.selected.power;
 }
-// get.toString = function () {
-//     return 'function(){}'
-// }
+get.toString = function () {
+    return 'function(){return window.selected&&window.selected.power}'
+}
 
 function set() {
 }
-// set.toString = function () {
-//     return 'function(){}';
-// }
+set.toString = function () {
+    return 'function(){}';
+}
 
 var component = {
     name: 'power',

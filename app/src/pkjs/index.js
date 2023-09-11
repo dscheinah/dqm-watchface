@@ -10,9 +10,9 @@ function customFn () {
         c.getItemByMessageKey('breeding').setData(c.meta.userData);
     });
 }
-// customFn.toString = function () {
-//     return 'function(){}';
-// };
+customFn.toString = function () {
+    return 'function(){var e=this;e.on("AFTER_BUILD",(function(){e.getItemByMessageKey("breeding").setData(e.meta.userData)}))}';
+};
 
 var clay = new Clay(config, customFn, {
     userData: breeding.userData

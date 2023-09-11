@@ -6,9 +6,9 @@ function get() {
         status_steps: '10000'
     };
 }
-// get.toString = function () {
-//     return 'function(){}';
-// };
+get.toString = function () {
+    return 'function(){return this.v||{monsters:["","","","","","",""],status_power:"0",status_tier:"1",status_steps:"10000"}}';
+};
 
 function set(value) {
     this.v = value;
@@ -110,7 +110,7 @@ function set(value) {
     }
 
     var buttonWrapper = document.createElement('div');
-    buttonWrapper.className = 'breeding_buttons';
+    buttonWrapper.className = 'breeding__buttons';
     var breedingWrapper = document.createElement('div');
     for (key in this.families) {
         var family = this.families[key];
@@ -177,9 +177,9 @@ function set(value) {
     base.appendChild(breedingWrapper);
     document.getElementById('breeding').appendChild(base);
 }
-// set.toString = function () {
-//     return 'function(){}';
-// };
+set.toString = function () {
+    return 'function(e){if(this.v=e,this.initialized){var n,i,t={},r={},a=function(n){for(var i=0,t=n.index;t>31;)i++,t-=32;return(parseInt(e.monsters[i])||0)&1<<t},d=function(n,i){if(n.tier&&e.status_tier>=n.tier)return!0;for(var r=0;r<n.breeding.length;r++){for(var a=n.breeding[r],d=!0,s=0;s<a.length;s++){var c=a[s],l=c.indexOf("-family");if(l>0){if(!i[c.substring(0,l)].owned.length){d=!1;break}}else if(!t[c]){d=!1;break}}if(d)return!0}return!1};for(n in this.monsters)(i=this.monsters[n]).index&&a(i)&&(t[n]=!0,this.families[i.family].owned.push(i));for(n in this.monsters)(i=this.monsters[n]).index&&!t[n]&&(d(i,this.families)&&(r[i.index]=!0),this.families[i.family].other.push(i));var s=function(e){var n=document.createElement("button");return n.type="button",n.innerHTML=e.name,n},c=function(n){var i=document.createElement("div");n.power>e.status_power?i.className="breeding--disabled":i.addEventListener("click",(function(){if(this.className)return this.className="",void(window.selected=null);document.querySelectorAll(".breeding--selected").forEach((function(e){e.className=""})),this.className="breeding--selected",window.selected=n}));var t=document.createElement("img");if(t.src="data:image;base64,"+n.image,i.appendChild(t),n.power>1){var r=document.createElement("span");r.innerHTML="+"+n.power,r.className="breeding__power",i.appendChild(r)}return i},l=document.createElement("div");l.className="breeding__buttons";var o=document.createElement("div");for(n in this.families){var m=this.families[n],u=s(m);u.dataset.id="breeding-"+n;var h=document.createElement("div");h.id="breeding-"+n,h.className="breeding--hidden",u.addEventListener("click",(function(){document.querySelectorAll(".breeding--visible").forEach((function(e){e.className="breeding--hidden"})),document.querySelectorAll(".breeding--active").forEach((function(e){e.className=""})),this.className="breeding--active",document.getElementById(this.dataset.id).className="breeding--visible"}));var p=document.createElement("div");p.className="breeding__icons";var f=document.createElement("other");if(f.className="breeding__icons",m.owned.forEach((function(e){var n=c(e);p.appendChild(n)})),m.other.forEach((function(e){var n;r[e.index]?n=c(e):((n=document.createElement("div")).className="breeding--disabled",n.innerHTML=\'<span class="breeding__unknown">?</span>\'),f.appendChild(n)})),h.appendChild(p),f.children.length){var v=document.createElement("p");v.innerHTML="<br/>New:",h.appendChild(v)}h.appendChild(f),l.appendChild(u),o.appendChild(h)}var b=document.createElement("div"),g=document.createElement("div");g.innerHTML+="<p>Tier: "+e.status_tier+" ("+e.status_steps+" steps left)</p>",g.innerHTML+="<p>Power: "+e.status_power+"</p>",g.innerHTML+="<br/>",b.appendChild(g),b.appendChild(l),b.appendChild(o),document.getElementById("breeding").appendChild(b)}}';
+};
 
 function setData(userData) {
     this.initialized = true;
@@ -189,17 +189,17 @@ function setData(userData) {
         this.set(this.v);
     }
 }
-// setData.toString = function () {
-//     return 'function(){}';
-// };
+setData.toString = function () {
+    return 'function(i){this.initialized=!0,this.monsters=i.monsters,this.families=i.families,this.v&&this.set(this.v)}';
+};
 
 var component = {
     name: 'breeding',
     template: '<div id="breeding" class="component breeding"></div>',
     manipulator: {get: get, set: set, setData: setData},
     style:
-        '.breeding_buttons { display: flex; flex-wrap: wrap; }' +
-        '.breeding_buttons button { margin: .25rem; border: 1px solid black; min-width: 100px; }' +
+        '.breeding__buttons { display: flex; flex-wrap: wrap; }' +
+        '.breeding__buttons button { margin: .25rem; border: 1px solid black; min-width: 100px; }' +
         '.breeding__icons { display: flex; flex-wrap: wrap; margin-top: 1rem; }' +
         '.breeding__icons > div { margin: .25rem; display: flex; align-items: center; justify-content: center; background: white; border-radius: .25rem; width: 73px; height: 73px; }' +
         '.breeding__icons > div { position: relative; border: 3px solid white; }' +
