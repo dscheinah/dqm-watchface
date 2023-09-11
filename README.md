@@ -2,7 +2,14 @@
 
 This is a fan art inspired by Dragon Quest Monsters (aka Dragon Warrior Monsters).
 
-Gamification is still subject to be added in a later version.
+The watchface displays various watch related information and in addition three monsters.
+
+The monster selection can be done by breeding in the settings page.
+
+In order to breed you need power, gained by sleeping. You will unlock new monsters by walking. These values are updated once an hour and on watchface reload.
+
+All game related information is taken from
+https://www.woodus.com/den/gallery/graphics/dwm1gbc/guide/DWMonsters1_Prima.pdf
 
 All assets have been taken from the original game with no credits to myself.
 
