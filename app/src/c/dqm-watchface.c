@@ -67,6 +67,7 @@ static void handleInbox(DictionaryIterator* iter, void* context) {
       state->power = 0;
     }
     monsters_mark_dirty();
+    watch_render_stats();
     state_update_index();
     state_write();
   }
