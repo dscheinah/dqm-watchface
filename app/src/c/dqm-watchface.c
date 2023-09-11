@@ -1,4 +1,5 @@
 #include <pebble.h>
+#include "game/game.h"
 #include "state/global.h"
 #include "state/settings.h"
 #include "state/state.h"
@@ -31,40 +32,17 @@ static void sendData() {
 }
 
 static void handleTime(struct tm* tick_time, TimeUnits units_changed) {
+  bool isDay = units_changed & DAY_UNIT;
   if (units_changed & MINUTE_UNIT) {
     watch_render_time(tick_time);
   }
-  if (units_changed & DAY_UNIT) {
-    if (!(units_changed & INIT_UNIT)) {
-      state->steps_last = 0;
-      state->sleep_last = 0;
-      state->power++;
-    }
-    watch_render_date(tick_time);
-  }
   if (units_changed & HOUR_UNIT) {
-    if (state->tier < 20) {
-      HealthValue steps = health_service_sum_today(HealthMetricStepCount);
-      state->steps_left -= steps - state->steps_last;
-      state->steps_last = steps;
-      if (state->steps_left <= 0) {
-        state->tier++;
-        state->steps_left = state->tier * 10000 + state->steps_left;
-      }
-    } else {
-      state->steps_left = 0;
-    }
-    if (state->power < 99) {
-      HealthValue sleep = health_service_sum_today(HealthMetricSleepSeconds);
-      state->sleep_left -= sleep - state->sleep_last;
-      state->sleep_last = sleep;
-      if (state->sleep_left <= 0) {
-        state->power++;
-        state->sleep_left = 18000 + state->sleep_left;
-      }
-    }
+    game_update_stats(isDay && !(units_changed & INIT_UNIT));
     state_write();
     sendData();
+  }
+  if (isDay) {
+    watch_render_date(tick_time);
   }
 }
 
@@ -108,6 +86,7 @@ static void prv_window_unload(Window *window) {
 
 static void prv_init(void) {
   state = state_init();
+  game_init(state);
   settings_init(state);
 
   s_window = window_create();
