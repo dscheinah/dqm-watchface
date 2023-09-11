@@ -38,6 +38,7 @@ static void handleTime(struct tm* tick_time, TimeUnits units_changed) {
   }
   if (units_changed & HOUR_UNIT) {
     game_update_stats(isDay && !(units_changed & INIT_UNIT));
+    watch_render_stats();
     state_write();
     sendData();
   }

@@ -1131,6 +1131,36 @@
           "file": "menu.png",
           "name": "MENU",
           "type": "bitmap"
+        },
+        {
+          "file": "bluetooth.png",
+          "name": "BLUETOOTH",
+          "type": "bitmap"
+        },
+        {
+          "file": "quiet.png",
+          "name": "QUIET",
+          "type": "bitmap"
+        },
+        {
+          "file": "battery.png",
+          "name": "BATTERY",
+          "type": "bitmap"
+        },
+        {
+          "file": "charging.png",
+          "name": "CHARGING",
+          "type": "bitmap"
+        },
+        {
+          "file": "egg.png",
+          "name": "EGG",
+          "type": "bitmap"
+        },
+        {
+          "file": "gate.png",
+          "name": "GATE",
+          "type": "bitmap"
         }
       ]
     }
