@@ -40,30 +40,26 @@ void watch_load(Layer* root, State* stateRef) {
   dateLayer = helper_create_text_layer(root, GRect(0, 128, 144, 16), FONT_SMALL, GTextAlignmentCenter);
   dowLayer = helper_create_text_layer(root, GRect(0, 144, 144, 16), FONT_SMALL, GTextAlignmentCenter);
 
-  connectionIconLayer = helper_create_bitmap_layer(root, GRect(5, 117, 5, 10));
   connectionIcon = helper_create_bitmap(RESOURCE_ID_BLUETOOTH);
-  bitmap_layer_set_bitmap(connectionIconLayer, connectionIcon);
+  connectionIconLayer = helper_create_bitmap_layer(root, GRect(5, 117, 5, 10), connectionIcon);
 
   if (quiet_time_is_active()) {
-    quietIconLayer = helper_create_bitmap_layer(root, GRect(15, 117, 10, 10));
     quietIcon = helper_create_bitmap(RESOURCE_ID_QUIET);
-    bitmap_layer_set_bitmap(quietIconLayer, quietIcon);
+    quietIconLayer = helper_create_bitmap_layer(root, GRect(15, 117, 10, 10), quietIcon);
   }
 
-  batteryIconLayer = helper_create_bitmap_layer(root, GRect(30, 117, 20, 10));
-  batteryTextLayer = helper_create_text_layer(root, GRect(52, 112, 30, 15), FONT_SMALL, GTextAlignmentLeft);
   batteryIcon = helper_create_bitmap(RESOURCE_ID_BATTERY);
   chargingIcon = helper_create_bitmap(RESOURCE_ID_CHARGING);
+  batteryIconLayer = helper_create_bitmap_layer(root, GRect(30, 117, 20, 10), NULL);
+  batteryTextLayer = helper_create_text_layer(root, GRect(52, 112, 30, 15), FONT_SMALL, GTextAlignmentLeft);
 
-  powerIconLayer = helper_create_bitmap_layer(root, GRect(85, 117, 10, 10));
-  powerTextLayer = helper_create_text_layer(root, GRect(97, 112, 15, 15), FONT_SMALL, GTextAlignmentLeft);
   powerIcon = helper_create_bitmap(RESOURCE_ID_EGG);
-  bitmap_layer_set_bitmap(powerIconLayer, powerIcon);
+  powerIconLayer = helper_create_bitmap_layer(root, GRect(85, 117, 10, 10), powerIcon);
+  powerTextLayer = helper_create_text_layer(root, GRect(97, 112, 15, 15), FONT_SMALL, GTextAlignmentLeft);
 
-  tierIconLayer = helper_create_bitmap_layer(root, GRect(115, 117, 10, 10));
-  tierTextLayer = helper_create_text_layer(root, GRect(128, 112, 15, 15), FONT_SMALL, GTextAlignmentLeft);
   tierIcon = helper_create_bitmap(RESOURCE_ID_GATE);
-  bitmap_layer_set_bitmap(tierIconLayer, tierIcon);
+  tierIconLayer = helper_create_bitmap_layer(root, GRect(115, 117, 10, 10), tierIcon);
+  tierTextLayer = helper_create_text_layer(root, GRect(128, 112, 15, 15), FONT_SMALL, GTextAlignmentLeft);
 }
 
 void watch_render_time(struct tm* tick_time) {
@@ -83,11 +79,7 @@ void watch_render_connection(bool connected) {
 }
 
 void watch_render_battery(int percentage, bool charging) {
-  if (charging) {
-    bitmap_layer_set_bitmap(batteryIconLayer, chargingIcon);
-  } else {
-    bitmap_layer_set_bitmap(batteryIconLayer, batteryIcon);
-  }
+  bitmap_layer_set_bitmap(batteryIconLayer, charging ? chargingIcon : batteryIcon);
   snprintf(batteryBuffer, 5, "%d%%", percentage);
   text_layer_set_text(batteryTextLayer, batteryBuffer);
 }

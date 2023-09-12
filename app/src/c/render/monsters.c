@@ -68,9 +68,9 @@ static void renderBitmap(Part* part, ResourceValue resource) {
 void monsters_load(Layer* root, State* stateRef) {
   state = stateRef;
 
-  parts[0].image = helper_create_bitmap_layer(root, GRect( 0, 55, 48, 48));
-  parts[1].image = helper_create_bitmap_layer(root, GRect(48, 55, 48, 48));
-  parts[2].image = helper_create_bitmap_layer(root, GRect(96, 55, 48, 48));
+  parts[0].image = helper_create_bitmap_layer(root, GRect( 0, 55, 48, 48), NULL);
+  parts[1].image = helper_create_bitmap_layer(root, GRect(48, 55, 48, 48), NULL);
+  parts[2].image = helper_create_bitmap_layer(root, GRect(96, 55, 48, 48), NULL);
 
   monsters_mark_dirty();
 }
