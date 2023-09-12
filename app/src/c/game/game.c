@@ -37,12 +37,12 @@ void game_update_stats(bool dayChange) {
 }
 
 void game_add_monster(ResourceValue monster, int power) {
-  if (monster < 1 || monster > 215) {
+  if (monster > 215) {
     return;
   }
   state->monsters[0] = state->monsters[1];
   state->monsters[1] = state->monsters[2];
-  state->monsters[2] = monster;
+  state->monsters[2] = monster ?: RESOURCE_ID_TERRY;
   state->power -= power;
   if (state->power < 0) {
     state->power = 0;
