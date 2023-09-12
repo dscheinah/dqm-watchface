@@ -14,6 +14,7 @@ static State state = {
   .sleep_left = 18000,
   .steps_last = 0,
   .sleep_last = 0,
+  .identifier = 0,
 };
 
 void updateIndex(ResourceValue monster) {

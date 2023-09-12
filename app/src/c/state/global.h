@@ -17,4 +17,5 @@ typedef struct {
   int sleep_left;
   HealthValue steps_last;
   HealthValue sleep_last;
+  short identifier;
 } State;

@@ -32,17 +32,16 @@ static void sendData() {
 }
 
 static void handleTime(struct tm* tick_time, TimeUnits units_changed) {
-  bool isDay = units_changed & DAY_UNIT;
   if (units_changed & MINUTE_UNIT) {
     watch_render_time(tick_time);
   }
   if (units_changed & HOUR_UNIT) {
-    game_update_stats(isDay && !(units_changed & INIT_UNIT));
+    game_update_stats(tick_time->tm_mday);
     watch_render_stats();
     state_write();
     sendData();
   }
-  if (isDay) {
+  if (units_changed & DAY_UNIT) {
     watch_render_date(tick_time);
   }
 }
