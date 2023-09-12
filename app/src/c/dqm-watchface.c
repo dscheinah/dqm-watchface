@@ -59,13 +59,7 @@ static void handleInbox(DictionaryIterator* iter, void* context) {
   Tuple* selection = dict_find(iter, MESSAGE_KEY_selection);
   Tuple* power = dict_find(iter, MESSAGE_KEY_power);
   if (selection && power) {
-    state->monsters[0] = state->monsters[1];
-    state->monsters[1] = state->monsters[2];
-    state->monsters[2] = selection->value->uint16;
-    state->power -= power->value->uint8;
-    if (state->power < 0) {
-      state->power = 0;
-    }
+    game_add_monster(selection->value->uint16, power->value->uint8);
     monsters_mark_dirty();
     watch_render_stats();
     state_update_index();
