@@ -3,7 +3,7 @@
 
 State* state;
 
-void handleTierUpdate(time_t start, time_t end) {
+static void handleTierUpdate(time_t start, time_t end) {
   if (state->tier >= 20) {
     return;
   }
@@ -24,7 +24,7 @@ void handleTierUpdate(time_t start, time_t end) {
   }
 }
 
-void handlePowerUpdate(time_t start, time_t end) {
+static void handlePowerUpdate(time_t start, time_t end) {
   if (state->power >= 99) {
     return;
   }

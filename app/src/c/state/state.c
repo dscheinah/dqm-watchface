@@ -17,7 +17,7 @@ static State state = {
   .identifier = 0,
 };
 
-void updateIndex(ResourceValue monster) {
+static void updateIndex(ResourceValue monster) {
   int key = 0, chk = monster;
   while (chk > 31) {
     key++;
