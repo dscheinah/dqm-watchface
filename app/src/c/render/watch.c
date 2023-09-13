@@ -24,6 +24,10 @@ static GBitmap* powerIcon;
 static GBitmap* tierIcon;
 
 static char* timeFormat;
+static char* dateFormat = "%x";
+static char* dowFormat = "%A";
+static char* batteryFormat = "%d%%";
+static char* statsFormat = "%d";
 
 static char timeBuffer[6];
 static char dateBuffer[20];
@@ -68,9 +72,9 @@ void watch_render_time(struct tm* tick_time) {
 }
 
 void watch_render_date(struct tm* tick_time) {
-  strftime(dateBuffer, 20, "%x", tick_time);
+  strftime(dateBuffer, 20, dateFormat, tick_time);
   text_layer_set_text(dateLayer, dateBuffer);
-  strftime(dowBuffer, 20, "%A", tick_time);
+  strftime(dowBuffer, 20, dowFormat, tick_time);
   text_layer_set_text(dowLayer, dowBuffer);
 }
 
@@ -80,14 +84,14 @@ void watch_render_connection(bool connected) {
 
 void watch_render_battery(uint8_t percentage, bool charging) {
   bitmap_layer_set_bitmap(batteryIconLayer, charging ? chargingIcon : batteryIcon);
-  snprintf(batteryBuffer, 5, "%d%%", percentage);
+  snprintf(batteryBuffer, 5, batteryFormat, percentage);
   text_layer_set_text(batteryTextLayer, batteryBuffer);
 }
 
 void watch_render_stats() {
-  snprintf(powerBuffer, 3, "%d", state->power);
+  snprintf(powerBuffer, 3, statsFormat, state->power);
   text_layer_set_text(powerTextLayer, powerBuffer);
-  snprintf(tierBuffer, 3, "%d", state->tier);
+  snprintf(tierBuffer, 3, statsFormat, state->tier);
   text_layer_set_text(tierTextLayer, tierBuffer);
 }
 
