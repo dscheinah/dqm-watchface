@@ -10,7 +10,7 @@ void watch_render_date(struct tm* tick_time);
 
 void watch_render_connection(bool connected);
 
-void watch_render_battery(int percentage, bool charging);
+void watch_render_battery(uint8_t percentage, bool charging);
 
 void watch_render_stats();
 

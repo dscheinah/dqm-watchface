@@ -11,8 +11,8 @@ typedef struct {
   ResourceValue monsters[3];
   SettingsValue settings;
   uint index[7];
-  int16_t tier;
-  int16_t power;
+  short tier;
+  short power;
   int steps_left;
   int sleep_left;
   HealthValue steps_last;

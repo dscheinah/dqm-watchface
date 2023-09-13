@@ -72,7 +72,7 @@ void game_update_stats(short identifier) {
   state->identifier = identifier;
 }
 
-void game_add_monster(ResourceValue monster, int power) {
+void game_add_monster(ResourceValue monster, short power) {
   if (monster > 215) {
     return;
   }

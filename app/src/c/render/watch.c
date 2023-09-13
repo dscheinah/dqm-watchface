@@ -78,7 +78,7 @@ void watch_render_connection(bool connected) {
   layer_set_hidden(bitmap_layer_get_layer(connectionIconLayer), !connected);
 }
 
-void watch_render_battery(int percentage, bool charging) {
+void watch_render_battery(uint8_t percentage, bool charging) {
   bitmap_layer_set_bitmap(batteryIconLayer, charging ? chargingIcon : batteryIcon);
   snprintf(batteryBuffer, 5, "%d%%", percentage);
   text_layer_set_text(batteryTextLayer, batteryBuffer);
