@@ -479,7 +479,7 @@
   "orochi": {
     "index": 37,
     "family": "dragon",
-    "tier": 18,
+    "tier": 16,
     "breeding": [
       ["dragon-family", "???-family"],
       ["andreal", "medusaeye"],
@@ -589,7 +589,7 @@
   "bigeye": {
     "index": 48,
     "family": "beast",
-    "tier": 18,
+    "tier": 8,
     "breeding": [
       ["beast-family", "eyeball"]
     ],
@@ -607,7 +607,7 @@
   "darkhorn": {
     "index": 50,
     "family": "beast",
-    "tier": 18,
+    "tier": 15,
     "breeding": [
       ["beast-family", "???-family"]
     ],
@@ -1372,9 +1372,9 @@
   "watabou": {
     "index": 109,
     "family": "plant",
-    "tier": 19,
+    "tier": 18,
     "breeding": [],
-    "power": 5
+    "power": 4
   },
   "wingtree": {
     "index": 110,

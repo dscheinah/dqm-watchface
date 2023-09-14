@@ -4,7 +4,7 @@
 State* state;
 
 static void handleTierUpdate(time_t start, time_t end) {
-  if (state->tier >= 20) {
+  if (state->tier >= 18) {
     return;
   }
   HealthValue steps = health_service_sum(HealthMetricStepCount, start, end);
@@ -18,8 +18,8 @@ static void handleTierUpdate(time_t start, time_t end) {
     state->tier++;
     state->steps_left = state->tier * 10000 + state->steps_left;
   }
-  if (state->tier >= 20) {
-    state->tier = 20;
+  if (state->tier >= 18) {
+    state->tier = 18;
     state->steps_left = 0;
   }
 }
