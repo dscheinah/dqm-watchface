@@ -15,7 +15,7 @@ All assets have been taken from the original game with no credits to myself.
 
 # App-Store
 
-TODO
+https://apps.rebble.io/en_US/application/6503faaa81ffd2007375874c
 
 # Development
 
