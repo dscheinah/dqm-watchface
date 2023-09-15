@@ -32,14 +32,15 @@ static void sendData() {
 }
 
 static void handleTime(struct tm* tick_time, TimeUnits units_changed) {
+  bool isInit = units_changed & INIT_UNIT, changed = false;
   if (units_changed & MINUTE_UNIT) {
     watch_render_time(tick_time);
-    if (tick_time->tm_min % 14 == 0 && game_update_stats(tick_time->tm_mday)) {
-      watch_render_stats();
-      sendData();
+    if (isInit || tick_time->tm_min % 14 == 0) {
+      changed = game_update_stats(tick_time->tm_mday);
     }
   }
-  if (units_changed & HOUR_UNIT) {
+  if (changed || (!isInit && units_changed & HOUR_UNIT)) {
+    watch_render_stats();
     state_write();
     sendData();
   }
