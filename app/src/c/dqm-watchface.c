@@ -34,10 +34,12 @@ static void sendData() {
 static void handleTime(struct tm* tick_time, TimeUnits units_changed) {
   if (units_changed & MINUTE_UNIT) {
     watch_render_time(tick_time);
+    if (tick_time->tm_min % 14 == 0 && game_update_stats(tick_time->tm_mday)) {
+      watch_render_stats();
+      sendData();
+    }
   }
   if (units_changed & HOUR_UNIT) {
-    game_update_stats(tick_time->tm_mday);
-    watch_render_stats();
     state_write();
     sendData();
   }

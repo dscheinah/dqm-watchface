@@ -38,6 +38,7 @@ static char tierBuffer[3];
 
 void watch_load(Layer* root, State* stateRef) {
   state = stateRef;
+
   timeFormat = state->settings & SETTINGS_TIME_FORMAT ? "%H:%M" : "%I:%M";
   timeLayer = helper_create_text_layer(root, GRect(0, 5, 144, 50), FONT_LARGE, GTextAlignmentCenter);
 
@@ -64,6 +65,8 @@ void watch_load(Layer* root, State* stateRef) {
   tierIcon = helper_create_bitmap(RESOURCE_ID_GATE);
   tierIconLayer = helper_create_bitmap_layer(root, GRect(115, 117, 10, 10), tierIcon);
   tierTextLayer = helper_create_text_layer(root, GRect(128, 112, 15, 15), FONT_SMALL, GTextAlignmentLeft);
+
+  watch_render_stats();
 }
 
 void watch_render_time(struct tm* tick_time) {
