@@ -135,6 +135,7 @@ void watch_unload() {
   bitmap_layer_destroy(connectionIconLayer);
   bitmap_layer_destroy(batteryIconLayer);
   text_layer_destroy(batteryTextLayer);
+  layer_destroy(batteryStateLayer);
   bitmap_layer_destroy(powerIconLayer);
   text_layer_destroy(powerTextLayer);
   bitmap_layer_destroy(tierIconLayer);
