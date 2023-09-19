@@ -15,15 +15,36 @@ customFn.toString = function () {
 };
 
 var clay = new Clay(config, customFn, {
-    userData: breeding.userData
+    userData: breeding.userData,
+    autoHandleEvents: false
 });
 
 breeding.init(clay);
 power.init(clay);
 selection.init(clay);
 
+var timeout;
+
+function openUrl() {
+    timeout = null;
+    Pebble.openURL(clay.generateUrl());
+}
+
 Pebble.addEventListener('ready', function () {
     Pebble.addEventListener('appmessage', function (event) {
         breeding.pebble(clay, event.payload);
+        if (timeout) {
+            clearTimeout(timeout);
+            openUrl();
+        }
     });
+});
+
+Pebble.addEventListener('showConfiguration', function() {
+    timeout = setTimeout(openUrl, 1000);
+    Pebble.sendAppMessage({});
+});
+
+Pebble.addEventListener('webviewclosed', function(e) {
+    Pebble.sendAppMessage(clay.getSettings(e && e.response || {}));
 });

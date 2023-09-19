@@ -32,17 +32,15 @@ static void sendData() {
 }
 
 static void handleTime(struct tm* tick_time, TimeUnits units_changed) {
-  bool isInit = units_changed & INIT_UNIT, changed = false;
   if (units_changed & MINUTE_UNIT) {
     watch_render_time(tick_time);
-    if (isInit || tick_time->tm_min % 14 == 0) {
-      changed = game_update_stats(tick_time->tm_mday);
+    if (tick_time->tm_min % 14 == 0) {
+      if (game_update_stats(tick_time->tm_mday)) {
+        watch_render_stats();
+        sendData();
+      }
+      state_write();
     }
-  }
-  if (changed || (!isInit && units_changed & HOUR_UNIT)) {
-    watch_render_stats();
-    state_write();
-    sendData();
   }
   if (units_changed & DAY_UNIT) {
     watch_render_date(tick_time);
@@ -109,9 +107,6 @@ static void prv_init(void) {
 
   app_message_register_inbox_received(handleInbox);
   app_message_open(128, 128);
-
-  void* data = NULL;
-  app_timer_register(1000, &sendData, data);
 }
 
 static void prv_deinit(void) {

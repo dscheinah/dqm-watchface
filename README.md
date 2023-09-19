@@ -6,7 +6,7 @@ The watchface displays various watch related information and in addition three m
 
 The monster selection can be done by breeding in the settings page.
 
-In order to breed you need power, gained by sleeping. You will unlock new monsters by walking. These values are updated once an hour and on watchface reload.
+In order to breed you need power, gained by sleeping. You will unlock new monsters by walking.
 
 All game related information is taken from
 https://www.woodus.com/den/gallery/graphics/dwm1gbc/guide/DWMonsters1_Prima.pdf
