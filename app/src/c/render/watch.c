@@ -11,6 +11,7 @@ static BitmapLayer* quietIconLayer;
 static BitmapLayer* connectionIconLayer;
 static BitmapLayer* batteryIconLayer;
 static TextLayer* batteryTextLayer;
+static Layer* batteryStateLayer;
 static BitmapLayer* powerIconLayer;
 static TextLayer* powerTextLayer;
 static BitmapLayer* tierIconLayer;
@@ -36,6 +37,18 @@ static char batteryBuffer[5];
 static char powerBuffer[3];
 static char tierBuffer[3];
 
+static int batteryPercentage = 0;
+
+static void renderBatteryState(Layer* layer, GContext* ctx) {
+  if (!batteryPercentage) {
+    return;
+  }
+  GRect bounds = layer_get_bounds(layer);
+  int w = bounds.size.w * batteryPercentage / 100;
+  graphics_context_set_fill_color(ctx, GColorBlack);
+  graphics_fill_rect(ctx, GRect(0, 0, w, bounds.size.h), 0, GCornerNone);
+}
+
 void watch_load(Layer* root, State* stateRef) {
   state = stateRef;
 
@@ -56,7 +69,9 @@ void watch_load(Layer* root, State* stateRef) {
   batteryIcon = helper_create_bitmap(RESOURCE_ID_BATTERY);
   chargingIcon = helper_create_bitmap(RESOURCE_ID_CHARGING);
   batteryIconLayer = helper_create_bitmap_layer(root, GRect(30, 117, 20, 10), NULL);
+  batteryStateLayer = helper_create_layer(root, GRect(32, 119, 14, 6));
   batteryTextLayer = helper_create_text_layer(root, GRect(52, 112, 30, 15), FONT_SMALL, GTextAlignmentLeft);
+  layer_set_update_proc(batteryStateLayer, renderBatteryState);
 
   powerIcon = helper_create_bitmap(RESOURCE_ID_EGG);
   powerIconLayer = helper_create_bitmap_layer(root, GRect(85, 117, 10, 10), powerIcon);
@@ -86,7 +101,14 @@ void watch_render_connection(bool connected) {
 }
 
 void watch_render_battery(uint8_t percentage, bool charging) {
-  bitmap_layer_set_bitmap(batteryIconLayer, charging ? chargingIcon : batteryIcon);
+  batteryPercentage = percentage;
+  if (charging) {
+    bitmap_layer_set_bitmap(batteryIconLayer, chargingIcon);
+    layer_set_hidden(batteryStateLayer, true);
+  } else {
+    bitmap_layer_set_bitmap(batteryIconLayer, batteryIcon);
+    layer_set_hidden(batteryStateLayer, false);
+  }
   snprintf(batteryBuffer, 5, batteryFormat, percentage);
   text_layer_set_text(batteryTextLayer, batteryBuffer);
 }
