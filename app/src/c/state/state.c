@@ -10,7 +10,7 @@ static State state = {
   .index = {0, 0, 0, 0, 0, 0, 0},
   .power = 0,
   .tier = 1,
-  .steps_left = 10000,
+  .steps_left = 8000,
   .sleep_left = 18000,
   .steps_last = 0,
   .sleep_last = 0,
@@ -29,6 +29,12 @@ static void updateIndex(ResourceValue monster) {
 State* state_init() {
   if (persist_exists(VERSION_KEY)) {
     persist_read_data(STATE_KEY, &state, sizeof(State));
+    switch (persist_read_int(VERSION_KEY)) {
+      case 1:
+        if (state.tier < 18) {
+          state.steps_left -= 2000 * state.tier;
+        }
+    }
   }
   state_update_index();
   return &state;
@@ -41,6 +47,6 @@ void state_update_index() {
 }
 
 void state_write() {
-  persist_write_int(VERSION_KEY, 1);
+  persist_write_int(VERSION_KEY, 2);
   persist_write_data(STATE_KEY, &state, sizeof(State));
 }
