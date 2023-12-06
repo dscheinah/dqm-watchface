@@ -17,7 +17,7 @@ static bool handleTierUpdate() {
   state->steps_left -= difference;
   while (state->steps_left <= 0) {
     state->tier++;
-    state->steps_left = state->tier * 8000 + state->steps_left;
+    state->steps_left = (int) state->tier * 8000 + state->steps_left;
     trigger = true;
   }
   if (state->tier >= 18) {

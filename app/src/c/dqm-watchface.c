@@ -24,9 +24,9 @@ static void sendData() {
     dict_write_int(outbox, MESSAGE_KEY_breeding4, &state->index[4], 4, false);
     dict_write_int(outbox, MESSAGE_KEY_breeding5, &state->index[5], 4, false);
     dict_write_int(outbox, MESSAGE_KEY_breeding6, &state->index[6], 4, false);
-    dict_write_int(outbox, MESSAGE_KEY_status_power, &state->power, 2, false);
-    dict_write_int(outbox, MESSAGE_KEY_status_tier, &state->tier, 2, false);
-    dict_write_int(outbox, MESSAGE_KEY_status_steps, &state->steps_left, 4, false);
+    dict_write_int(outbox, MESSAGE_KEY_status_power, &state->power, 2, true);
+    dict_write_int(outbox, MESSAGE_KEY_status_tier, &state->tier, 2, true);
+    dict_write_int(outbox, MESSAGE_KEY_status_steps, &state->steps_left, 4, true);
     app_message_outbox_send();
   }
 }
