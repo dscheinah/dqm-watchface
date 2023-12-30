@@ -12,6 +12,8 @@ void watch_render_connection(bool connected);
 
 void watch_render_battery(uint8_t percentage, bool charging);
 
+void watch_render_quiet();
+
 void watch_render_stats();
 
 void watch_unload();

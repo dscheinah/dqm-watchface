@@ -61,10 +61,8 @@ void watch_load(Layer* root, State* stateRef) {
   connectionIcon = helper_create_bitmap(RESOURCE_ID_BLUETOOTH);
   connectionIconLayer = helper_create_bitmap_layer(root, GRect(5, 117, 5, 10), connectionIcon);
 
-  if (quiet_time_is_active()) {
-    quietIcon = helper_create_bitmap(RESOURCE_ID_QUIET);
-    quietIconLayer = helper_create_bitmap_layer(root, GRect(15, 117, 10, 10), quietIcon);
-  }
+  quietIcon = helper_create_bitmap(RESOURCE_ID_QUIET);
+  quietIconLayer = helper_create_bitmap_layer(root, GRect(15, 117, 10, 10), quietIcon);
 
   batteryIcon = helper_create_bitmap(RESOURCE_ID_BATTERY);
   chargingIcon = helper_create_bitmap(RESOURCE_ID_CHARGING);
@@ -81,6 +79,7 @@ void watch_load(Layer* root, State* stateRef) {
   tierIconLayer = helper_create_bitmap_layer(root, GRect(115, 117, 10, 10), tierIcon);
   tierTextLayer = helper_create_text_layer(root, GRect(128, 112, 15, 15), FONT_SMALL, GTextAlignmentLeft);
 
+  watch_render_quiet();
   watch_render_stats();
 }
 
@@ -111,6 +110,10 @@ void watch_render_battery(uint8_t percentage, bool charging) {
   }
   snprintf(batteryBuffer, 5, batteryFormat, percentage);
   text_layer_set_text(batteryTextLayer, batteryBuffer);
+}
+
+void watch_render_quiet() {
+  layer_set_hidden(bitmap_layer_get_layer(quietIconLayer), !quiet_time_is_active());
 }
 
 void watch_render_stats() {

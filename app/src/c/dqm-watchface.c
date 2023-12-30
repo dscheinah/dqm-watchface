@@ -33,6 +33,7 @@ static void sendData() {
 
 static void handleTime(struct tm* tick_time, TimeUnits units_changed) {
   if (units_changed & MINUTE_UNIT) {
+    watch_render_quiet();
     watch_render_time(tick_time);
     if (tick_time->tm_min % 14 == 0) {
       if (game_update_stats(tick_time->tm_mday)) {
