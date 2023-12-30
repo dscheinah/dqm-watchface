@@ -7,7 +7,7 @@ static bool handleTierUpdate() {
   if (state->tier >= 18) {
     return false;
   }
-  HealthValue steps = health_service_sum_today(HealthMetricStepCount);
+  HealthValue steps = PBL_IF_HEALTH_ELSE(health_service_sum_today(HealthMetricStepCount), 7500);
   int difference = steps - state->steps_last;
   state->steps_last = steps;
   if (difference <= 0) {
@@ -31,7 +31,7 @@ static bool handlePowerUpdate() {
   if (state->power >= 99) {
     return false;
   }
-  HealthValue sleep = health_service_sum_today(HealthMetricSleepSeconds);
+  HealthValue sleep = PBL_IF_HEALTH_ELSE(health_service_sum_today(HealthMetricSleepSeconds), 21000);
   int difference = sleep - state->sleep_last;
   state->sleep_last = sleep;
   if (difference <= 0) {
